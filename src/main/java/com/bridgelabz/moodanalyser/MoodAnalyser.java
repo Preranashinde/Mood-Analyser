@@ -4,20 +4,23 @@ import java.util.Objects;
 public class MoodAnalyser {
     private String message;
     private String returnMessage;
-
+    //no-arg constructor
     public MoodAnalyser()
     {
+
     }
-    public MoodAnalyser(String message) {
+    //parametrized constructor
+    public MoodAnalyser(String message)
+    {
         this.message = message;
     }
-
-    public String analyseMood(String message) throws MoodAnalysisException {
+    public String analyseMood(String message) throws MoodAnalysisException
+    {
         this.message = message;
         return analyseMood();
     }
-
-    public String analyseMood()throws MoodAnalysisException
+    // Overloaded analyseMood method
+    public String analyseMood() throws MoodAnalysisException
     {
         try
         {
@@ -33,7 +36,6 @@ public class MoodAnalyser {
         }
         return returnMessage;
     }
-
     @Override
     public boolean equals(Object o)
     {

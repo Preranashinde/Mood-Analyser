@@ -2,7 +2,6 @@ package com.bridgelabz.moodanalyser;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -122,5 +121,28 @@ public class MoodAnalyserTest {
         {
             Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_METHOD,e.type);
         }
+    }
+    @Test
+    public void givenHappyMessage_WhenProper_ShouldReturnHappyMood() throws MoodAnalysisException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException
+    {
+        Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser",String.class);
+        MoodAnalyser moodAnalyserObject = MoodAnalyserFactory.createMoodAnalyserObject(moodAnalyserConstructor,"I am in happy mood");
+        Object result = MoodAnalyserFactory.createMethod(moodAnalyserObject,"analyseMood");
+        Assert.assertEquals("HAPPY",result);
+    }
+    @Test
+    public void givenHappyMessage_WhenImproperMethod_ShouldThrowMoodAnalysisException() throws IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException, MoodAnalysisException {
+
+        try
+        {
+            Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser",String.class);
+            MoodAnalyser moodAnalyserObject = MoodAnalyserFactory.createMoodAnalyserObject(moodAnalyserConstructor,"I am in happy mood");
+            MoodAnalyserFactory.createMethod(moodAnalyserObject,"analysenullmood");
+        }
+        catch (MoodAnalysisException e)
+        {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_METHOD,e.type);
+        }
+
     }
 }

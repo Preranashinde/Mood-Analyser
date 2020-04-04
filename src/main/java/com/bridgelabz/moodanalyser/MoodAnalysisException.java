@@ -1,5 +1,4 @@
 package com.bridgelabz.moodanalyser;
-
 public class MoodAnalysisException extends Exception
 {
     enum ExceptionType
