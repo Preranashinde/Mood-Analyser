@@ -12,20 +12,26 @@ public class MoodAnalyser {
         this.message = message;
     }
 
-    public String analyseMood(String message) {
+    public String analyseMood(String message) throws MoodAnalysisException {
         this.message = message;
         return analyseMood();
     }
 
-    String analyseMood() {
+    public String analyseMood()throws MoodAnalysisException
+    {
         try
         {
+            if (message.length() == 0)
+            {
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,"Please enter proper mood");
+            }
             returnMessage = (message.contains("Sad")) ? "SAD":"HAPPY";
         }
         catch (NullPointerException e)
         {
-            return "HAPPY";
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_NULL,"Please enter proper message");
         }
         return returnMessage;
     }
+
 }
