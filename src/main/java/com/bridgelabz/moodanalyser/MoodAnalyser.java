@@ -1,5 +1,7 @@
 package com.bridgelabz.moodanalyser;
 
+import java.util.Objects;
+
 public class MoodAnalyser {
     private String message;
     private String returnMessage;
@@ -28,9 +30,24 @@ public class MoodAnalyser {
         }
         catch (NullPointerException e)
         {
-            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_NULL,"Please enter proper message");
+            return "HAPPY";
         }
         return returnMessage;
     }
 
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+            return true;
+        if (!(o instanceof MoodAnalyser))
+            return false;
+        MoodAnalyser that = (MoodAnalyser) o;
+        return Objects.equals(message, that.message) && Objects.equals(returnMessage, that.returnMessage);
+    }
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(message, returnMessage);
+    }
 }
