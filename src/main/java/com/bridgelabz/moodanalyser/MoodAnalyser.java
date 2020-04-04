@@ -22,7 +22,7 @@ public class MoodAnalyser {
         {
             returnMessage="SAD";
         }
-        else if (message.equals("I am in Happy Mood"))
+        else if (message.equals("I am in Happy Mood") || message.equals("I am in Any Mood"))
         {
             returnMessage="HAPPY";
         }
