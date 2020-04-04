@@ -12,5 +12,4 @@ public class MoodAnalysisException extends Exception
         super(message);
         this.type = type;
     }
-
 }
