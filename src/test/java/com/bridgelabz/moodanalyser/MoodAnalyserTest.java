@@ -12,6 +12,7 @@ public class MoodAnalyserTest {
     {
         moodAnalyser = new MoodAnalyser("I am in Sad Mood");
         result = moodAnalyser.analyseMood();
+        String result = moodAnalyser.analyseMood();
         Assert.assertEquals("SAD",result);
     }
 
@@ -20,6 +21,7 @@ public class MoodAnalyserTest {
     {
         moodAnalyser = new MoodAnalyser("I am in Happy Mood");
         result = moodAnalyser.analyseMood();
+        String result = moodAnalyser.analyseMood();
         Assert.assertEquals("HAPPY",result);
     }
 
@@ -27,6 +29,7 @@ public class MoodAnalyserTest {
     public void givenMessage_whenAny_shouldReturnHappy() {
         moodAnalyser=new MoodAnalyser("I am in Any Mood");
         result=moodAnalyser.analyseMood();
+        String result = moodAnalyser.analyseMood();
         Assert.assertEquals("HAPPY", result);
     }
 }

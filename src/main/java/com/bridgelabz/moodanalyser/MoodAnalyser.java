@@ -3,7 +3,7 @@ package com.bridgelabz.moodanalyser;
 public class MoodAnalyser {
     private String message;
     private String returnMessage;
-    //no-arg constructor
+
     public MoodAnalyser()
     {
 
