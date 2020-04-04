@@ -2,8 +2,8 @@ package com.bridgelabz.moodanalyser;
 import java.util.Objects;
 
 public class MoodAnalyser {
-    private String message;
-    private String returnMessage;
+    public String message;
+    public String returnMessage;
     //no-arg constructor
     public MoodAnalyser()
     {
