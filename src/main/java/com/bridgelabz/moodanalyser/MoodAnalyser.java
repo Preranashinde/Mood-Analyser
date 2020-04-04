@@ -6,7 +6,6 @@ public class MoodAnalyser {
 
     public MoodAnalyser()
     {
-
     }
     public MoodAnalyser(String message) {
         this.message = message;
