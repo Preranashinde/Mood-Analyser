@@ -18,13 +18,13 @@ public class MoodAnalyser {
     }
 
     String analyseMood() {
-        if (message.equals("I am in Sad Mood"))
+        try
         {
-            returnMessage="SAD";
+            returnMessage = (message.contains("Sad")) ? "SAD":"HAPPY";
         }
-        else if (message.equals("I am in Happy Mood") || message.equals("I am in Any Mood"))
+        catch (NullPointerException e)
         {
-            returnMessage="HAPPY";
+            return "HAPPY";
         }
         return returnMessage;
     }
